@@ -1,1 +1,1 @@
-Ansible playbook for securing the systems
+Ansible playbook for securing the Linux systems
