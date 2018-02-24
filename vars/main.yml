@@ -1,0 +1,7 @@
+
+---
+
+  sshd_config : /etc/ssh/sshd_config
+  root_passwd : $6$QevwQvxHqw8oHXQh$xbyUbQ0Z7Z2oZAsgmNJoeZ07ni3EV4StXTWtMXYsl3AzeHyfCKHAh5v0BPe7GN0atu4C5411fe09TviFc6ieh.
+
+

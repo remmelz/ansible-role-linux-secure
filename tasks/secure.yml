@@ -1,0 +1,31 @@
+
+---
+
+  - name: Change root passwd
+    user: name="root" password={{ root_passwd }}
+
+  - name: Start firewall service
+    systemd: state=started name=SuSEfirewall2_init
+    when: ansible_distribution == "openSUSE Tumbleweed"
+
+  - name: Enable firewall service
+    systemd: enabled=yes name=SuSEfirewall2_init
+    when: ansible_distribution == "openSUSE Tumbleweed"
+
+  - name: Disable empty password login
+    lineinfile: dest={{ sshd_config }} regexp="^#?PermitEmptyPasswords" line="PermitEmptyPasswords no"
+    notify: restart sshd
+
+  - name: Disable challenge response authentication
+    lineinfile: dest={{ sshd_config }} regexp="^#?PasswordAuthentication" line="PasswordAuthentication no"
+    notify: restart sshd
+
+  - name: Disable password login
+    lineinfile: dest={{ sshd_config }} regexp="^#?ChallengeResponseAuthentication" line="ChallengeResponseAuthentication no"
+    notify: restart sshd
+
+  - name: Enable pam
+    lineinfile: dest={{ sshd_config }} regexp="^#?UsePAM" line="UsePAM yes"
+    notify: restart sshd
+
+

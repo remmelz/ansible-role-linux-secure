@@ -1,0 +1,8 @@
+
+
+- name: Securing a Linux system
+  hosts: all
+
+  roles:
+    - ansible-role-linux-secure
+
