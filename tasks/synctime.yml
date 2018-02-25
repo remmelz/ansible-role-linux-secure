@@ -1,0 +1,8 @@
+
+---
+
+  - name: Syncing time servers 
+    shell: >
+      chronyc -a "burst 3/5";
+      chronyc -a makestep
+
