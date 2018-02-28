@@ -11,7 +11,7 @@
       name: SuSEfirewall2_init
       state: started
       enabled: yes
-    when: ansible_distribution == "openSUSE Tumbleweed"
+    when: ansible_os_family|lower == 'suse'
 
   - name: Disable empty password login
     lineinfile:
