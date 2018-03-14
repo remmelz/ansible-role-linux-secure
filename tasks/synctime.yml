@@ -1,6 +1,17 @@
 
 ---
 
+  - name: Ensuring chrony installation
+    package:
+      name: chrony
+      state: present
+
+  - name: Enabling chrony
+    systemd:
+      name: chronyd
+      state: started
+      enabled: yes
+
   - name: Syncing time servers 
     shell: >
       chronyc -a "burst 3/5";
