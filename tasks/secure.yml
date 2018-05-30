@@ -8,10 +8,9 @@
 
   - name: Start firewall service
     systemd:
-      name: SuSEfirewall2_init
+      name: firewalld
       state: started
       enabled: yes
-    when: ansible_os_family|lower == 'suse'
 
   - name: Disable empty password login
     lineinfile:
